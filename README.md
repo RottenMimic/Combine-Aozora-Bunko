@@ -21,8 +21,10 @@
 * bug report: marvel.bunny@gmail.com
 
 ## Versions
+* v20180405
+1. Add function: load by author
 
-v0.1 (2018-3-31)
+* v20180331
 1. Base Function
 
 ## Future update
