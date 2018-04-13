@@ -2,7 +2,7 @@
    "author": "作者",
    "title": "タイトル",
    "date": "年月",
-   "app_title": "青空文庫合併君",
+   "app_name": "青空文庫合併君",
    "add_file": "ロード",
    "load_by_author": "作者でロード",
    "export": "セーブ"

@@ -2,7 +2,7 @@
    "author": "作者",
    "title": "标题",
    "date": "日期",
-   "app_title": "合并青空文库",
+   "app_name": "合并青空文库",
    "add_file": "添加档案",
    "load_by_author": "作者下载",
    "export": "输出"
