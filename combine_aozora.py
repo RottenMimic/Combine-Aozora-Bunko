@@ -237,11 +237,17 @@ def load_author(id):
                url_split=work_list[index][0].split('/')
                arr=analyse_html('https://www.aozora.gr.jp/cards/'+url_split[2]+'/'+url_split[3], ['<a href="./files/(.*?).zip">'])
                zip_url='https://www.aozora.gr.jp/cards/'+url_split[2]+'/files/'+arr[0][0]+'.zip'
-               print item['text'] +' '+ zip_url
+               try:
+                  print item['text'] +' '+ zip_url
+               except:
+                  print zip_url
                zip_file=urllib2.urlopen(zip_url).read()
                analyse_zip(zip_file)
             except:
-               print "error while loading "+item['text']
+               try:
+                  print "error while loading "+item['text']
+               except:
+                  print 'error happened'
       print 'load done.'
       t.destroy()
       
