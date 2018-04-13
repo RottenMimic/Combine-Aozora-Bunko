@@ -1,4 +1,4 @@
-[繁體中文](#traditional_chinese) [简体中文](simplified_chinese) [日本語](japanese)
+[繁體中文](#traditional_chinese) [简体中文](#simplified_chinese) [日本語](#japanese)
 
 # Combine Aozora Bunko
 
