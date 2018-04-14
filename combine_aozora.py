@@ -31,7 +31,7 @@ name_dic={
          'export': 'Export',
          "select_all": "Select All",
          "deselect_all": "Deselect All",
-         "web_descri": "full zip or text url. Ctrl+C to past."
+         "web_descri": "full zip or text url. Ctrl+V to past."
       }
 file_dic={}
 column_headings=('title', 'author', 'date', 'novel')
