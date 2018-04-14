@@ -54,12 +54,11 @@ else:
    code=locale.windows_locale[windll.GetUserDefaultUILanguage()].lower()
 
 if os.path.exists(code+'.json'):
-   try:
-      dic=json.load(open(code+'.json'))
-      for item in dic:
-         name_dic[item]=dic[item]
-   except:
-      pass
+   
+   dic=json.load(open(code+'.json'))
+   for item in dic:
+      name_dic[item]=dic[item]
+   
 
    
       

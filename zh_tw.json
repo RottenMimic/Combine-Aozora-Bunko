@@ -1,13 +1,13 @@
 {
-   "author": "作者",
-   "title": "標題",
-   "date": "日期",
-   "app_name": "合併青空文庫",
-   "add_file": "添加檔案",
-   "load_by_author": "作者下載",
+"author": "作者",
+"title": "標題",
+"date": "日期",
+"app_name": "合併青空文庫",
+"add_file": "添加檔案",
+"load_by_author": "作者下載",
 "load_from_url": "從網路下載",
-   "export": "輸出",
-	"select_all": "全選",
-	"deselect_all": "取消全部選擇",
-	"web_descri": "請輸入完整zip檔或txt檔網址。 Ctrl+V 貼上"
+"export": "輸出",
+"select_all": "全選",
+"deselect_all": "取消全部選擇",
+"web_descri": "請輸入完整zip檔或txt檔網址。 Ctrl+V 貼上"
 }
