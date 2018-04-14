@@ -1,5 +1,9 @@
 [繁體中文](#traditional_chinese) [简体中文](#simplified_chinese) [日本語](#japanese)
 
+##Recent Update
+* v20180414
+add load from web function
+
 # Combine Aozora Bunko
 
 * Combine [aozora-bunko](https://www.aozora.gr.jp/) format text to one text file.
@@ -22,27 +26,31 @@
   * zh_tw: tradional chinese
   * zh_cn: simplified chinese
   * jp: japanese
-  * en: english
 * move up: PageUp key
 * move down: PageDown key
 * delete: Delete key
 * multiple selection allows
 
 ## Versions
+* v20180414
+add load from web function
+
 * v20180413
-1. ver.1 done
+ver.1 done
 
 * v20180405
-1. Add function: load by author
+Add function: load by author
 
 * v20180331
-1. Base Function
+Base Function
 
 ## Future update
 May support in ver.2:
 * drag files to load
 * support python 3
+
 ---
+
 ### traditional_chinese
 # 合併青空文庫
 
@@ -66,12 +74,13 @@ May support in ver.2:
   * zh_tw: 繁體中文
   * zh_cn: 簡體中文
   * jp: 日文
-  * en: 英文
 * 往上移: PageUp 鍵
 * 往下移: PageDown 鍵
 * 刪除: Delete 鍵
 * 支援多選(包括輸入檔案及選擇等)
+
 ---
+
 ### simplified_chinese
 # 合并青空文库
 
@@ -95,12 +104,13 @@ May support in ver.2:
   * zh_tw: 繁体中文
   * zh_cn: 简体中文
   * jp: 日文
-  * en: 英文
 * 往上移: PageUp 键
 * 往下移: PageDown 键
 * 删除: Delete 键
 * 支援多选(包括输入档案及选择等)
+
 ---
+
 ### japanese
 # 青空文庫合併君
 
@@ -124,7 +134,6 @@ May support in ver.2:
   * zh_tw: 繁体中国語
   * zh_cn: 簡体中国語
   * jp: 日本語
-  * en: 英語
 * アップ: PageUp 
 * ダウン: PageDown
 * 削除: Delete

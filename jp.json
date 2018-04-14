@@ -3,7 +3,11 @@
    "title": "タイトル",
    "date": "年月",
    "app_name": "青空文庫合併君",
-   "add_file": "ロード",
-   "load_by_author": "作者でロード",
-   "export": "セーブ"
+   "add_file": "ファイルをロード",
+   "load_by_author": "作者でダウンロード",,
+	"load_from_url": "ネットからダウンロード",
+   "export": "セーブ",
+	"select_all": "すべて選択",
+	"deselect_all": "すべての選択を解除",
+	"web_descri":"zipファイルまたはtxtファイルのURLを入力してください。 Ctrl+C で貼り付け"
 }

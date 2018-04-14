@@ -7,7 +7,7 @@
 #email: marvel.bunny@gmail.com
 #-----------------------------------
 
-import Tkinter as tk, ttk
+import Tkinter as tk, ttk, ScrolledText
 import urllib2, re
 import locale, ctypes
 import json
@@ -17,7 +17,7 @@ import codecs
 import tkFileDialog
 
 #-----------values setting--------------
-DEFAULT_LANG='' #zh_tw, zh_cn, jp, en...
+DEFAULT_LANG='' #zh_tw, zh_cn, jp
 
 #-----------values global--------------
 name_dic={
@@ -27,7 +27,11 @@ name_dic={
          'app_name': 'Combine Aozora Bunko',
          'add_file': 'Add File',
          'load_by_author': 'Load By Author',
-         'export': 'Export'
+         'load_from_url': 'Load From URL',
+         'export': 'Export',
+         "select_all": "Select All",
+         "deselect_all": "Deselect All",
+         "web_descri": "full zip or text url. Ctrl+C to past."
       }
 file_dic={}
 column_headings=('title', 'author', 'date', 'novel')
@@ -49,20 +53,15 @@ else:
    windll = ctypes.windll.kernel32
    code=locale.windows_locale[windll.GetUserDefaultUILanguage()].lower()
 
-if 'en' in code: code='en'   
-dic={}
-
 if os.path.exists(code+'.json'):
-   dic=json.load(open(code+'.json'))
-else:
    try:
-      dic=json.load(open('en.json'))
+      dic=json.load(open(code+'.json'))
+      for item in dic:
+         name_dic[item]=dic[item]
    except:
       pass
 
-if not(name_dic==dic):
-   for item in dic:
-      name_dic[item]=dic[item]
+   
       
 #-------------common-----------
 def extract_zip_data(data):
@@ -101,12 +100,24 @@ def analyse_html(url, patterns):
    
 #-------------core-----------
 def analyse_text(tx):
-   arr=tx.splitlines()
-   if len(arr)<3:return
+   tmp=tx.splitlines()
+   if len(tmp)<3:return
    
+   #remove note
+   arr=[]
+   note_flag=False
+   for i in tmp:
+      if i.startswith('-------------'):
+         note_flag=not note_flag
+         continue
+         
+      if note_flag==False:
+         arr+=[i]
+  
    title=arr[0]
    author=arr[1]
-
+   
+      
    date=''
    c=len(arr)-1
    while c>0:
@@ -139,6 +150,32 @@ def load_local_file():
          analyse_text(encode_tx(tx))
       else:
          print 'not supported file format: '+path
+
+def load_from_web():
+   t=tk.Toplevel(root)
+   t.wm_title("url")
+   tk.Label(t, text=name_dic['web_descri']).pack()
+   p=ScrolledText.ScrolledText(t)
+   p.pack()
+   
+   #popup
+   def call_back():
+      arr=p.get(1.0, tk.END).splitlines()
+      for url in arr:
+         try:
+            if url.lower().endswith('.zip'):
+               zip_file=urllib2.urlopen(url).read()
+               analyse_zip(zip_file)
+            elif url.lower().endswith('.txt'):
+               tx=urllib2.urlopen(url).read()
+               analyse_text(encode_tx(tx))
+            else:
+               print 'not suport format: '+url
+         except:
+            print 'error in loading: '+url
+      t.destroy()
+   tk.Button(t, text="ok", command=call_back).pack()
+   
 
 def export_file():
    path=tkFileDialog.asksaveasfilename(defaultextension='.txt', filetypes=(("Plain Text", ".txt"), ("All Files", "*.*")))
@@ -214,8 +251,8 @@ def load_author(id):
          item.state(['!selected'])
    top_frame=tk.Frame(t)
    top_frame.pack()
-   tk.Button(top_frame, text='select all', command=select_all).pack(side=tk.LEFT)
-   tk.Button(top_frame, text='deselect all', command=deselect_all).pack(side=tk.LEFT)
+   tk.Button(top_frame, text=name_dic['select_all'], command=select_all).pack(side=tk.LEFT)
+   tk.Button(top_frame, text=name_dic['deselect_all'], command=deselect_all).pack(side=tk.LEFT)
    
    #center frame
    frame=create_scroll_frame(t)
@@ -352,6 +389,7 @@ tree.heading('date', text=name_dic['date'], command=lambda: tree_sort('date', Fa
 
 tk.Button(root, text=name_dic['add_file'], command=load_local_file).pack(side=tk.LEFT)
 tk.Button(root, text=name_dic['load_by_author'], command=msg_box).pack(side=tk.LEFT)
+tk.Button(root, text=name_dic['load_from_url'], command=load_from_web).pack(side=tk.LEFT)
 tk.Button(root, text=name_dic['export'], command=export_file).pack(side=tk.RIGHT)
 
 root.mainloop()
