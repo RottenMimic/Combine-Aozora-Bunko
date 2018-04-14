@@ -9,5 +9,5 @@
    "export": "セーブ",
 	"select_all": "すべて選択",
 	"deselect_all": "すべての選択を解除",
-	"web_descri":"zipファイルまたはtxtファイルのURLを入力してください。 Ctrl+C で貼り付け"
+	"web_descri":"zipファイルまたはtxtファイルのURLを入力してください。 Ctrl+V で貼り付け"
 }
